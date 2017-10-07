@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fight and conquer</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+
+
+	<script type="text/javascript">
+		var health = 10;
+		function rollDice(){
+			var rand1 = Math.ceil(Math.random() * 6);
+			var rand2 = Math.ceil(Math.random() * 6);
+			var dice = document.getElementById('dice')
+			console.log(dice);
+			var image1 = dice.children[0];
+			var image2 = dice.children[1];
+			image1.src = `d${rand1}.gif`;
+			image2.src = `d${rand2}.gif`;
+
+			if(rand1 + rand2 > 7){
+				document.getElementById('dragon').children[0].src = "https://soulonitsknees.files.wordpress.com/2011/09/1610120204007.png";
+				document.getElementById('dragon').children[0].style.height = "400px";
+				document.getElementById('dragon').children[0].style.width = "400px";
+				console.log("you have defeated the dragon");
+					// var win = prompt("you have defeated the dragon, do you want to play agin");
+					// if(prompt == "yes");
+				document.getElementById('message').innerHTML = "<h3>You have defeated the dragon</h3>";
+			if(health > 0 && (rand1 + rand2 >= 1)){ 
+				document.getElementById('health').innerHTML = `health = ${health--}`;
+				
+			}
+		}
+	}
+
+
+			
+
+				
+		
+	</script>
+</head>
+<body>
+	<div id="game-wrapper">
+		<div id="health">
+			Health = 10
+		</div>
+		<div id="dragon">
+			<img src="./dragon.png">
+		</div>
+		
+		<div id ="message">
+			you have encountered the great and mighty dragon roll to fight
+		</div>
+		<div id="dice">
+			<img src="./d1.gif">
+			<img src="./d1.gif">
+		</div>
+		<div id="roll">
+			<button onclick="rollDice();">Fight</button>
+		</div>
+	</div>
+</body>
+</html>
